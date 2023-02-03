@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  postgres-filehandler:
+    container_name: "postgres-filehandler"
+    image: postgres:latest
+    volumes:
+      - postgres-filehandler-volume:/var/lib/postgresql/data
+    restart: on-failure
+    environment:
+      POSTGRES_DB: postgres-filehandler
+      POSTGRES_USER: hlepik
+      POSTGRES_PASSWORD: hlepik_filehandler
+
+    ports:
+      - "5432:5432"
+
+  webapp-file-handler:
+    container_name: webapp-file-handler
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-filehandler:5432/postgres-filehandler?useSSL=false
+      - SPRING_DATASOURCE_USERNAME=hlepik
+      - SPRING_DATASOURCE_PASSWORD=hlepik_filehandler
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    ports:
+      - "18080:80"
+    depends_on:
+      - postgres-filehandler
+
+  filehandler-frontend:
+    container_name: "filehandler-frontend"
+    build:
+      context: .
+      dockerfile: src/frontend/Dockerfile-front
+    restart: on-failure
+    ports:
+      # this maps external:internal, but the docker created network between images is connected directly - using the original ports
+      # so use external for connecting with admin tools - docker will forward connection to internal port
+      - "90:90"
+
+volumes:
+  postgres-filehandler-volume:

@@ -1,18 +1,13 @@
 package com.example.filehandler.repository;
 
 import com.example.filehandler.model.File;
-import org.springframework.stereotype.Component;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-@Component
-public class FileRepository {
+import java.util.UUID;
 
-    public File findAll(){
-
-       var a = new File();
-       a.setId(323232323L);
-       a.setName("re");
+@Repository
+public interface FileRepository extends CrudRepository<File, UUID> {
 
 
-        return a;
-    }
 }
