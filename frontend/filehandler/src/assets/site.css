@@ -1,0 +1,120 @@
+
+#header {
+    height: 5rem;
+    top: 0;
+    position: sticky;
+    z-index: 3;
+    box-shadow: 0 -6px 10px 1px rgb(0 0 0);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+#root {
+    min-height: 100%;
+    position: relative;
+    height: 100%;
+}
+
+.LoginBox {
+    width:40%;
+    padding: 4rem;
+    box-shadow: 0 6px 20px 0 var(--box-shadow-color);
+    color: #23494D;
+    --box-shadow-color: #e5e4e4;
+
+}
+
+.LoginContainer {
+    display: flex;
+    margin-top: 7rem;
+    justify-content: center;
+}
+
+.MainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #E5E4E4;
+    margin: auto;
+}
+
+.PageContainer {
+    width: 85%;
+    margin: auto;
+    background: white;
+    padding: 2rem 0;
+    min-height: calc(100vh - 9rem);
+
+}
+
+.loginButton {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: right;
+
+}
+.DialogAlert {
+    margin-bottom: 3rem;
+
+}
+
+.fileUpload {
+    margin-left: 2rem;
+}
+.firstCell {
+    text-align: center;;
+}
+.StyledDialog {
+    width: 100%;
+
+}
+.closeButton {
+    width: 100%;
+    display: flex;
+    margin-top: 1rem;
+    padding-right: 1rem;
+    justify-content: flex-end;
+}
+.deleteButton {
+    display: flex;
+    justify-content: end;
+    margin-top: 3rem;
+}
+
+
+
+
+.layoutContainer {
+    padding: 3rem;
+}
+
+.MainPage {
+    background: #E5E4E4;
+}
+
+
+.HeaderLinks {
+    display: flex;
+    justify-content: flex-start;
+    padding-right: 1rem;
+}
+h1 {
+    text-align:center;
+    color: cornflowerblue;
+}
+h3 {
+    text-align:center;
+}
+
+
+
+
+
+
+
